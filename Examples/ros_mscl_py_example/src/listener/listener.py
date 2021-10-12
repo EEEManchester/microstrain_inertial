@@ -3,10 +3,12 @@ import rospy
 from sensor_msgs.msg import Imu
 
 def imuDataCallback(imu):
-    #rospy.loginfo("Quaternion Orientation:  [%f, %f, %f, %f]", imu.orientation.x, imu.orientation.y, imu.orientation.z, imu.orientation.w);
-    rospy.loginfo("Acceleration:        [%f, %f, %f]", imu.linear_acceleration.x, imu.linear_acceleration.y, imu.linear_acceleration.z);
+    #rospy.loginfo("IMU Sequence: ", imu.header.seq);
+    #rospy.loginfo("IMU Stamp (sec): ", imu.header.stamp);
+    rospy.loginfo("Linear Acceleration:     [%f, %f, %f]", imu.linear_acceleration.x, imu.linear_acceleration.y, imu.linear_acceleration.z);
     rospy.loginfo("Angular Velocity:        [%f, %f, %f]", imu.angular_velocity.x, imu.angular_velocity.y, imu.angular_velocity.z);
-    # add code here to handle incoming IMU data
+    rospy.loginfo("Quaternion Orientation:  [%f, %f, %f, %f]", imu.orientation.x, imu.orientation.y, imu.orientation.z, imu.orientation.w);
+   # add code here to handle incoming IMU data
     
 def listener():
 
@@ -35,3 +37,4 @@ def listener():
 
 if __name__ == '__main__':
     listener()
+
